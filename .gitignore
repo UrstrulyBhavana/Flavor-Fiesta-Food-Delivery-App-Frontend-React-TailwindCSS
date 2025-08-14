@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# parcel / build caches & outputs
+.cache/
+.parcel-cache/
+dist/
+coverage/
+
+# logs & misc
+*.log
+.DS_Store
+Thumbs.db
+
+# environment variables / secrets
+.env
+.env.local
+.env.*.local
+
+# ignore lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# archives
+*.zip
+
+
+
+
+
+
