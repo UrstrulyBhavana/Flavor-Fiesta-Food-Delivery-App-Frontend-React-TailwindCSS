@@ -1,4 +1,4 @@
-# 🛒 Flavour Fiesta – React Food Ordering App
+# 🛒 Flavor Fiesta – React Food Ordering App
 
 <p align="center">
   <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%96%20by%20Bhavana-brightgreen?style=for-the-badge" alt="Made with Love by Bhavana" />
@@ -32,13 +32,13 @@
 
 Click to watch the video walkthrough:
 
-[![Flavour Fiesta Demo](https://img.youtube.com/vi/Q5SOcvposZM/0.jpg)](https://youtu.be/Q5SOcvposZM)
+[![Flavor Fiesta Demo](https://img.youtube.com/vi/Q5SOcvposZM/0.jpg)](https://youtu.be/Q5SOcvposZM)
 
 ---
 
 ## 🔎 Overview
 
-**Flavour Fiesta** is a responsive **React food ordering app** that connects users to nearby restaurants, allows them to browse menus, and place orders with ease.  
+**Flavor Fiesta** is a responsive **React food ordering app** that connects users to nearby restaurants, allows them to browse menus, and place orders with ease.  
 
 It is designed to be **portfolio-ready and production-friendly**, featuring:  
 - **Robust data handling**: API, Mock, and Auto Fallback modes.  
@@ -272,11 +272,11 @@ export const Menu_API = IS_LOCAL
 
 ## 💡 Notes & Tips
 
-🚀 The hosted demo runs on Render free tier.
+- The hosted demo runs on Render free tier.
 
-Render servers enter sleep mode after inactivity, so the first load may take ~30–60 seconds.
+- Render servers enter sleep mode after inactivity, so the first load may take ~30–60 seconds.
 
-After that, it runs smoothly.
+- After that, it runs smoothly.
 
 ---
 
