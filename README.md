@@ -233,50 +233,50 @@ export const Menu_API = IS_LOCAL
   ? "http://localhost:5174/api/menu?resId="
   : `${PROXY_BASE}/api/menu?resId=`;
 ```
-. ?mock=1 on a menu route forces mock data.
+- ?mock=1 on a menu route forces mock data.
 
-. Proxy ensures CORS-free API fetches.
+- Proxy ensures CORS-free API fetches.
 
 ---
 
-### 🔄 State & Data Flow
-#### Redux Slice (cartSlice.js)
+## 🗂 State & Data Flow
 
-- addItem(item)
+- **Redux Toolkit** manages global state.
+  
+- **Slices**:  
+  - `cartSlice.js` → manages cart items  
+  - `userSlice.js` → handles user authentication & preferences
+    
+- **Context API** for app-wide settings (light usage).
+  
+- **Custom Hooks**:  
+  - `useRestaurantMenu` → fetches & caches menu data  
+  - `useOnlineStatus` → tracks connectivity  
+  - `useBodyMockToggle` → toggles between API & mock data  
 
-- removeItemByIndex(index)
-
-- clearCart()
-
-#### Hooks
-
-- useRestaurantMenu(resId, forceMock) → [resInfo, source]
-
-- source: "api" | "mock" | "fallback"
-
-- useOnlineStatus() → online/offline boolean
-
-#### Context
-
-- MockContext – { useMock, setUseMock }
-
-- UserContext – { loggedInUser, setUserName }
+---
 
 ## ♿ Accessibility & UX
 
-- Semantic roles & alt text on images.
+- Shimmer UI (skeleton loaders) for smooth loading.
 
-- Buttons have aria-labels.
+- Lazy loading images with placeholders.
 
-- Shimmer respects reduced motion:
+- Keyboard navigation supported.
 
-   . motion-safe:animate-pulse
+- Semantic HTML used across components.
 
-   . motion-reduce:animate-none
+- Screen reader friendly with proper ARIA labels.
 
-- Focus-visible styles for keyboard navigation.
+---
 
-- Auto-centered responsive grid layouts.
+## 💡 Notes & Tips
+
+🚀 The hosted demo runs on Render free tier.
+
+Render servers enter sleep mode after inactivity, so the first load may take ~30–60 seconds.
+
+After that, it runs smoothly.
 
 ---
 
@@ -319,14 +319,6 @@ npm test
 6. Contact – SweetAlert2 toast on submit.
 
 7. Badges – always indicate API / Mock / Fallback.
-
----
-
-#### 📝 Notes & Tips
-
-. Render free tier may sleep — first API call could take a few seconds.
-
-. Legacy User.js & UserClass.js can be deleted to clean repo.
 
 ---
 
