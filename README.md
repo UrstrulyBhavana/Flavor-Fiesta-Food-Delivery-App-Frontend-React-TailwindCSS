@@ -26,6 +26,29 @@
 
 </p>
 
+
+<p align="center">
+
+[🎥 Demo](#-demo) •
+[🔎 Overview](#-overview) •
+[✨ Features](#-features) •
+[🧑‍💻 Tech Stack](#-tech-stack) •
+[📂 Architecture & Routes](#-architecture--routes) •
+[🌐 Server / Proxy](#-server--proxy) •
+[⚙️ Installation](#️-installation) •
+[🚀 Usage](#-usage) •
+[🔗 API & Data](#-api--data) •
+[🔄 State & Data Flow](#-state--data-flow) •
+[♿ Accessibility & UX](#-accessibility--ux) •
+[🧪 Testing](#-testing) •
+[📱 Screens & Flow](#-screens--flow-quick-tour) •
+[📝 Notes](#-notes--tips) •
+[🤝 Contributions](#-contributions) •
+[📬 Contact](#-contact) •
+[📄 License](#-license)
+
+</p>
+
 ---
 
 ## 📽️ Demo
