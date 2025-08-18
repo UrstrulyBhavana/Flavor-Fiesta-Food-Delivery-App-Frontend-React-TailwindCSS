@@ -1,219 +1,163 @@
-# 🛒 Flavour Fiesta – React Food Ordering App
+# Flavour Fiesta — React Food Ordering App 
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Made%20with-%F0%9F%92%96%20by%20Bhavana-brightgreen?style=for-the-badge" alt="Made with Love by Bhavana" />
-</p>
+A polished, mobile-first web app to discover restaurants, browse real menus, and add items to a cart.  
+Built with React, Redux Toolkit, TailwindCSS, and a tiny proxy to avoid CORS. Clear **API / Mock / Fallback** badges make data sources obvious.
 
-<p align="center">
-  <a href="#demo">Demo</a> •
-  <a href="#overview">Overview</a> •
-  <a href="#features">Features</a> •
-  <a href="#tech-stack">Tech Stack</a> •
-  <a href="#architecture--routes">Architecture & Routes</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#api--data">API & Data</a> •
-  <a href="#state--data-flow">State & Data Flow</a> •
-  <a href="#accessibility--ux">Accessibility & UX</a> •
-  <a href="#testing">Testing</a> •
-  <a href="#server--proxy">Server / Proxy</a> •
-  <a href="#deploy-netlify-spa">Deploy</a> •
-  <a href="#whats-new">What’s New</a> •
-  <a href="#roadmap">Roadmap</a> •
-  <a href="#contact">Contact</a> •
-  <a href="#license">License</a>
+<p>
+  <a href="https://react.dev/">React</a> •
+  <a href="https://redux-toolkit.js.org/">Redux Toolkit</a> •
+  <a href="https://tailwindcss.com/">TailwindCSS</a> •
+  <a href="https://reactrouter.com/">React Router</a> •
+  <a href="https://parceljs.org/">Parcel</a> •
+  <a href="https://www.netlify.com/">Netlify</a>
 </p>
 
 ---
 
-## 🎬 Demo
+## Contents
 
-- **Live (Netlify):** _add your Netlify URL here_
-- **Video:** https://youtu.be/Q5SOcvposZM
+- [Demo](#demo)
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture & Routes](#architecture--routes)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [API & Data](#api--data)
+- [State & Data Flow](#state--data-flow)
+- [Accessibility & UX](#accessibility--ux)
+- [Testing](#testing)
+- [Server / Proxy](#server--proxy)
+- [Deploy (Netlify SPA)](#deploy-netlify-spa)
+- [What’s New](#whats-new)
+- [Roadmap](#roadmap)
+- [Contact](#contact)
+- [License](#license)
+
+---
+
+## Demo
+
+- Live: _add your Netlify URL here_  
+- Video: https://youtu.be/Q5SOcvposZM
 
 ---
 
 ## Overview
 
-**Flavour Fiesta** is a modern, responsive React app to discover nearby restaurants, browse menus, and add dishes to a cart.  
-It focuses on:
-- **Performance** — shimmer/skeletons, abort stale requests, lazy UI.
-- **Clarity** — search, filters, category accordions, source badges.
-- **Reliability** — **API ↔ Mock** with **auto-fallback** when the API sleeps or returns empty.
-
-The app clearly shows **API / Mock / Fallback** badges on key screens, ships with polished content pages (**About / FAQ / Contact**), and uses a tiny **proxy** to avoid CORS issues.
+Flavour Fiesta focuses on:
+- **Performance** — skeleton shimmer, abort stale requests, lean bundles.
+- **Clarity** — search, “Top Rated” filter, category accordions, obvious data-source badges.
+- **Reliability** — API ↔ Mock switch with **automatic fallback** if API sleeps or returns empty.
 
 ---
 
-## Features
+## Key Features
 
-### Data Modes (always labeled with a badge)
-- **🌐 API** — live data via proxy-backed endpoints.
-- **📦 Mock** — force local JSON for predictable demos.
-- **🛟 Fallback** — automatic switch to Mock if API fails/returns empty.
+**Data modes (always labeled)**  
+- **API** — live data via proxy-backed endpoints.  
+- **Mock** — force local JSON for predictable demos (`Use Mock Data` or `?mock=1`).  
+- **Fallback** — automatic switch to mock on errors/empty payload.
 
-### Core UX
-- **Home (Restaurant List)** — search by name, **Top Rated** filter, **Use Mock Data** toggle, data-source badge.
-- **Restaurant Menu** — collapsible **category accordions**; **Add +** per item; per-restaurant `?mock=1` override.
-- **Cart** — list with images; **Remove (per row)** by index and **Clear Cart**.
-- **Online Status** — visible indicator in header.
-- **Shimmer** — centered, responsive skeleton grid that respects reduced motion.
-- **ScrollToTop** — resets scroll on route change.
+**Core UX**  
+- Home: restaurant grid, search, **Top Rated** filter, **Use Mock Data** toggle, badge (API/Mock/Fallback).
+- Menu: collapsible **category accordions**, **Add +** per item, optional `?mock=1`.
+- Cart: list with images, **Remove** per row (index-based), **Clear Cart**.
+- Header: brand, **online status**, cart count, nav.
+- Shimmer: centered, responsive skeletons.
+- ScrollToTop on route change.
 
-### Content Pages
-- **About** — mission, values, how it works.
-- **FAQ** — category accordions + keyword search.
-- **Contact** — SweetAlert2 success toast.
-
----
-
-## Tech Stack
-
-**Frontend**
-- React, React Router v6
-- Redux Toolkit (cart)
-- TailwindCSS
-- Font Awesome / React Icons
-- Parcel (dev/build)
-
-**Testing (optional)**
-- Jest + React Testing Library
-
-**Infra**
-- Netlify (SPA deploy)
-- Render (proxy) or local Express proxy
+**Content pages**  
+- About (mission, values, “how it works”)  
+- FAQ (category accordions + keyword search)  
+- Contact (SweetAlert2 success toast)
 
 ---
 
 ## Architecture & Routes
 
-### Directory (key files)
+src/
+├─ components/
+│ ├─ Header.js ├─ Footer.js
+│ ├─ Body.js ├─ Shimmer.js
+│ ├─ RestaurantCard.js ├─ RestaurantMenu.js
+│ ├─ RestaurantCategory.js
+│ ├─ ItemList.js ├─ Cart.js
+│ ├─ About.js ├─ FAQ.js
+│ ├─ Contact.js ├─ Error.js
+│ ├─ ScrollToTop.js
+│ └─ mocks/
+│ ├─ mockResListData.json
+│ └─ mockResMenu.json
+├─ utils/
+│ ├─ appStore.js ├─ cartSlice.js
+│ ├─ constants.js ├─ MockContext.js
+│ ├─ useOnlineStatus.js └─ useRestaurantMenu.js
+├─ index.css
+└─ App bootstrap (AppLayout + Router)
 
-```
-flavorfiesta-frontend
-├── dist/                         # production build (Netlify deploy target)
-├── src/
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── Body.js
-│   │   ├── RestaurantCard.js
-│   │   ├── RestaurantMenu.js
-│   │   ├── RestaurantCategory.js
-│   │   ├── ItemList.js
-│   │   ├── Cart.js
-│   │   ├── Shimmer.js
-│   │   ├── About.js
-│   │   ├── FAQ.js
-│   │   ├── Contact.js
-│   │   ├── Footer.js
-│   │   ├── Error.js
-│   │   ├── ScrollToTop.js
-│   │   └── mocks/
-│   │       ├── mockResListData.json
-│   │       └── mockResMenu.json
-│   └── utils/
-│       ├── appStore.js
-│       ├── cartSlice.js
-│       ├── constants.js
-│       ├── MockContext.js
-│       ├── useOnlineStatus.js
-│       └── useRestaurantMenu.js
-├── index.html
-├── index.css
-├── package.json
-└── README.md
-```
----
 
-### 🛠️ Built With
 
-#### Technologies Used:
-![React](https://img.shields.io/badge/React-18/19-61DAFB?logo=react&logoColor=white)
-![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-764ABC?logo=redux&logoColor=white)
-![React Router v6](https://img.shields.io/badge/React%20Router-v6-CA4245?logo=reactrouter&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white)
-![Parcel](https://img.shields.io/badge/Bundler-Parcel-000000?logo=parcel&logoColor=white)
-![SweetAlert2](https://img.shields.io/badge/SweetAlert2-11.x-FF6F61)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+Routes:
+
+- `/` → Home  
+- `/restaurants/:resId` → Menu (supports `?mock=1`)  
+- `/about`, `/faq`, `/contact`, `/cart`  
+- `*` → Error (route fallback)
 
 ---
 
+## Quick Start
 
-> `User.js` and `UserClass.js` were practice components and are no longer used (safe to delete).
-
-### Routes
-
-- `/` → **Home (Body)**
-- `/restaurants/:resId` → **Restaurant Menu** (supports `?mock=1`)
-- `/about` → **About**
-- `/contact` → **Contact**
-- `/faq` → **FAQ**
-- `/cart` → **Cart**
-- `*` → **Error** (route fallback)
-
----
-
-## Installation
-
-> Works with Node **14+**. (Node 18+ recommended.)
+> Node 14+ works; Node 18+ recommended.
 
 ```bash
 # 1) Clone
 git clone https://github.com/UrstrulyBhavana/Food-Ordering-App.git
 cd Food-Ordering-App
 
-# 2) Install deps
+# 2) Install
 npm install
 
-# 3) Start dev server (Parcel)
+# 3) Run (Parcel)
 npm run dev
 # or
 npm start
 
-# 4) Build for production
+# 4) Build
 npm run build
 ```
 ---
 
-### Usage
+Usage
 
-#### Home
+Home
 
-Toggle Use Mock Data to switch modes (API/Mock).
+Toggle Use Mock Data to switch API/Mock.
 
-Source badge shows the active mode (API / Mock / Fallback).
+Badge shows API / Mock / Fallback.
 
-Search filters by restaurant name.
+Search by name; Top Rated filters rating ≥ 4.4.
 
-#### Restaurant Menu
+Menu
 
-Category accordions with smooth expand/collapse.
+Expand/collapse categories; Add + items to cart.
 
-Add + adds an item to the cart (Redux).
+Use ?mock=1 to force mock for a restaurant.
 
-Append ?mock=1 to force mock data for this restaurant.
+Cart
 
-#### Cart
+Remove a single row (index-based) or Clear Cart.
 
-Remove a single row (index-based).
+Header shows cart count.
 
-Clear Cart empties everything.
+Content
 
-Cart count badge appears in the header.
-
-#### Content Pages
-
-About / FAQ / Contact share consistent visual style.
-
-Contact uses SweetAlert2 for success feedback.
-
-Top Rated filters by rating (≥ 4.4).
+About / FAQ / Contact have a consistent, accessible layout; Contact uses SweetAlert2 for success.
 
 ---
+### API & Data
 
-## API & Data
-
-All URLs are defined in src/utils/constants.js:
+All URLs live in src/utils/constants.js:
 
 export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
@@ -235,114 +179,119 @@ export const Menu_API = IS_LOCAL
   ? "http://localhost:5174/api/menu?resId="
   : `${PROXY_BASE}/api/menu?resId=`;
 
+
+#### Notes:
+
+Proxy avoids CORS.
+
+Local dev can run a local proxy on 5174 (client switches automatically via IS_LOCAL).
+
+Append ?mock=1 to a menu route to force mock for that restaurant.
+
 ---
 
-### Notes
+#### State & Data Flow
 
-    The proxy avoids CORS issues.
+### Redux Toolkit — cartSlice
 
-    Local development can run a local proxy on 5174 (auto-selected via IS_LOCAL).
+addItem(item)
 
-    Add ?mock=1 to a menu route to force mock for that restaurant.
+removeItemByIndex(index) — used by Cart “Remove”
+
+clearCart()
 
 ---
 
-### State & Data Flow
+#### Hooks
 
-  #### Redux Toolkit – cartSlice
+useRestaurantMenu(resId, forceMock) → [resInfo, source]
+source: "api" | "mock" | "fallback"; uses AbortController and auto-fallback.
 
-    addItem(item)
+useOnlineStatus() — window online/offline detection.
 
-    removeItemByIndex(index) — used by Cart Remove button
+#### Context
 
-    clearCart()
+MockContext — { useMock, setUseMock } (Home toggle + Menu routing)
 
-### Custom Hooks
-
-#### useRestaurantMenu(resId, forceMock) → [resInfo, source]
-
-    source is "api" | "mock" | "fallback".
-
-    Uses AbortController and auto-fallback when API fails/returns empty.
-
-#### useOnlineStatus() — window online/offline detection.
-
-### Context
-
-MockContext — { useMock, setUseMock } shared app-wide.
-
-UserContext — { loggedInUser, setUserName } (ready for future auth).
+UserContext — { loggedInUser, setUserName } (ready for future auth)
 
 ### Accessibility & UX
 
-    Semantic roles and descriptive alt text on images.
+---
 
-    Buttons include aria-labels where helpful.
+Semantic roles; descriptive alt text and useful aria-labels.
 
-    Keyboard focus styles on interactive controls.
+Keyboard focus styles on interactive controls.
 
-    Shimmer honors reduced motion:
+Shimmer respects reduced motion:
 
-  motion-safe:animate-pulse
-  motion-reduce:animate-none
+motion-safe:animate-pulse
 
-  Shimmer grid uses auto-fit layout to center cards on all viewports.
+motion-reduce:animate-none
 
-  ScrollToTop on route changes.
+Shimmer grid uses auto-fit to keep skeletons centered on all viewports.
 
-  ---
+ScrollToTop on route changes.
 
-  ### Suggested coverage
+---
+
+#### Testing 
+
+npm test
+
+#### Suggested coverage:
 
 Header (cart count, login toggle)
 
-Restaurant list (search, top-rated filter)
+Body (search + top-rated filter)
 
-Restaurant menu (add to cart)
+RestaurantMenu (add to cart)
 
-Restaurant category (accordion behavior)
+RestaurantCategory (accordion behavior)
 
-ItemList (add/remove)
+ItemList (add / per-row remove)
 
-Shimmer renders correctly
+Shimmer renders count/layout
 
-Error route renders a friendly fallback
+Error route displays fallback
 
 ---
 
 ### Server / Proxy
 
-To avoid CORS and keep the client clean, the app uses a tiny proxy (Render or local) mapped as:
+A tiny Express proxy (Render or local) exposes:
 
 GET /api/restaurants — restaurant list
 
-GET /api/menu?resId=<id> — restaurant menu
+GET /api/menu?resId=<id> — menu for a restaurant
 
-Local development: client auto-targets a local proxy at http://localhost:5174 when running on localhost.
+Local development: client targets http://localhost:5174 on localhost.
 
 Production: client uses the Render URL defined as PROXY_BASE.
 
 ---
 
-Deploy (Netlify SPA)
+### Deploy (Netlify SPA)
 
-1. Create a file named _redirects in the project root with:
-
- /*  /index.html  200
-
-2. Build
+1. Create _redirects at the repo root with:
+   /*  /index.html  200
    
-  npm run build    # outputs to /dist
+2. Build:
+ npm run build  # outputs to /dist
 
-  ---
+3. Netlify → Add new site → Deploy manually → drag-and-drop the dist/ folder.
 
-  What’s New
+Deep links like /cart or /restaurants/123 will work because of the _redirects rule.
+
+---
+
+### What’s New
 
 Data-source badge (API / Mock / Fallback) on key pages.
 
-Use Mock Data toggle + per-restaurant ?mock=1 override.
+Use Mock Data toggle + per-restaurant ?mock=1.
 
-useRestaurantMenu now returns [resInfo, source] and includes abort + fallback logic.
+useRestaurantMenu returns [resInfo, source] and includes abort + fallback logic.
 
 Cart supports per-row Remove and Clear Cart.
 
@@ -352,11 +301,25 @@ FAQ includes keyword search.
 
 Contact uses SweetAlert2 success toast.
 
-ScrollToTop added for smoother navigation.
+ScrollToTop added.
 
-Netlify SPA _redirects docs added.
+Netlify SPA _redirects guidance.
 
 Removed legacy User.js / UserClass.js.
+
+---
+
+### Roadmap
+
+Authentication & user profiles
+
+Address management & saved carts
+
+Sorting & advanced filters
+
+Checkout flow & payment mock
+
+Broader unit/integration tests
 
 ---
 
@@ -368,17 +331,8 @@ Email: urstrulybhavana1432@gmail.com
 
 GitHub: https://github.com/UrstrulyBhavana
 
---- 
+---
 
 #### License
 
 Licensed under the MIT License. See LICENSE for details.
-
-
-
-
-
-    
-
-
-    
