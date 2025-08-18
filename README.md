@@ -5,23 +5,25 @@
 </p>
 
 <p align="center">
-  <a href="#demo">Demo</a> •
-  <a href="#overview">Overview</a> •
-  <a href="#features">Features</a> •
-  <a href="#tech-stack">Tech Stack</a> •
-  <a href="#architecture--routes">Architecture & Routes</a> •
-  <a href="#server--proxy">Server / Proxy</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
-  <a href="#api--data">API & Data</a> •
-  <a href="#state--data-flow">State & Data Flow</a> •
-  <a href="#accessibility--ux">Accessibility & UX</a> •
-  <a href="#testing">Testing</a> •
-  <a href="#screens--flow-quick-tour">Screens & Flow</a> •
-  <a href="#notes--tips">Notes</a> •
-  <a href="#contributions">Contributions</a> •
-  <a href="#contact">Contact</a> •
-  <a href="#license">License</a>
+
+<a href="#demo">🎥 Demo</a> •
+<a href="#overview">🔎 Overview</a> •
+<a href="#features">✨ Features</a> •
+<a href="#tech-stack">🧑‍💻 Tech Stack</a> •
+<a href="#architecture--routes">📂 Architecture & Routes</a> •
+<a href="#server--proxy">🌐 Server / Proxy</a> •
+<a href="#installation">⚙️ Installation</a> •
+<a href="#usage">🚀 Usage</a> •
+<a href="#api--data">🔗 API & Data</a> •
+<a href="#state--data-flow">🔄 State & Data Flow</a> •
+<a href="#accessibility--ux">♿ Accessibility & UX</a> •
+<a href="#testing">🧪 Testing</a> •
+<a href="#screens--flow-quick-tour">📱 Screens & Flow</a> •
+<a href="#notes--tips">📝 Notes</a> •
+<a href="#contributions">🤝 Contributions</a> •
+<a href="#contact">📬 Contact</a> •
+<a href="#license">📄 License</a>
+
 </p>
 
 ---
@@ -36,15 +38,14 @@ Click to watch the video walkthrough:
 
 ## 🔎 Overview
 
-**Flavour Fiesta** is a modern, mobile-first food ordering app built with **React**.  
-It connects users with nearby restaurants, lets them browse menus, and order food seamlessly with a **fast, polished UI**.
+**Flavour Fiesta** is a responsive **React food ordering app** that connects users to nearby restaurants, allows them to browse menus, and place orders with ease.  
 
-The app is designed to be **portfolio & production-ready**, with:
-- A **robust data layer** (API, Mock, Auto Fallback).
-- A **Render-hosted proxy** to solve CORS issues.
-- **Performance-first UI**: shimmer loaders, smooth category transitions.
-- **Modern UX**: sticky header, responsive design, CTA footer, consistent branding.
-- **Strong engineering practices**: Redux Toolkit, contexts, and custom hooks.
+It is designed to be **portfolio-ready and production-friendly**, featuring:  
+- 🔄 **Robust data handling**: API, Mock, and Auto Fallback modes.  
+- 🌐 **CORS-safe proxy** hosted on Render for Swiggy API integration.  
+- ⚡ **Performance-first UI** with shimmer loaders & lazy rendering.  
+- 🎨 **Modern UX**: sticky header, responsive design, collapsible categories, and polished footer.  
+- 🛠 **Solid engineering**: Redux Toolkit for cart state, Context for global toggles, and custom hooks for online status & menu fetches.  
 
 ---
 
@@ -189,34 +190,26 @@ npm run build
 ```
 ---
 
-🚀 Usage:
-Home
+## 🚀 Usage
 
-. Toggle Mock Mode or use API.
+### 🏠 Home
+- Toggle **Mock Mode** or use live **API Mode**.  
+- Search restaurants by name.  
+- Filter restaurants by **Top Rated** (≥ 4.4 rating).  
+- Badge clearly shows active mode: **API / Mock / Fallback**.  
 
-. Search restaurants by name.
+### 🍽️ Restaurant Menu
+- Categories expand/collapse smoothly.  
+- **Add +** button adds items to the cart via Redux.  
 
-. Filter by Top Rated (≥ 4.4 rating).
+### 🛒 Cart
+- Remove items row-by-row (index-based).  
+- **Clear Cart** empties all items.  
+- Cart count badge visible in the header.  
 
-. Badge always shows current mode (API / Mock / Fallback).
+### 📞 Contact
+- Contact form triggers a **SweetAlert2 toast** on success.  
 
-Menu
-
-. Categories open/close smoothly.
-
-. Add + button adds item to cart (Redux).
-
-Cart
-
-. Remove items per row (index-based).
-
-. Clear entire cart.
-
-. Cart count shown in header badge.
-
-Contact
-
-. Contact form triggers SweetAlert2 toast on success.
 ---
 
 ## 🔗 API & Data
