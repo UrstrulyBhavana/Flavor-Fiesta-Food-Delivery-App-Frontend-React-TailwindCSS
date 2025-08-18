@@ -6,29 +6,6 @@
 
 <p align="center">
 
-<a href="#demo">🎥 Demo</a> •
-<a href="#overview">🔎 Overview</a> •
-<a href="#features">✨ Features</a> •
-<a href="#tech-stack">🧑‍💻 Tech Stack</a> •
-<a href="#architecture--routes">📂 Architecture & Routes</a> •
-<a href="#server--proxy">🌐 Server / Proxy</a> •
-<a href="#installation">⚙️ Installation</a> •
-<a href="#usage">🚀 Usage</a> •
-<a href="#api--data">🔗 API & Data</a> •
-<a href="#state--data-flow">🔄 State & Data Flow</a> •
-<a href="#accessibility--ux">♿ Accessibility & UX</a> •
-<a href="#testing">🧪 Testing</a> •
-<a href="#screens--flow-quick-tour">📱 Screens & Flow</a> •
-<a href="#notes--tips">📝 Notes</a> •
-<a href="#contributions">🤝 Contributions</a> •
-<a href="#contact">📬 Contact</a> •
-<a href="#license">📄 License</a>
-
-</p>
-
-
-<p align="center">
-
 [🎥 Demo](#-demo) •
 [🔎 Overview](#-overview) •
 [✨ Features](#-features) •
@@ -64,11 +41,11 @@ Click to watch the video walkthrough:
 **Flavour Fiesta** is a responsive **React food ordering app** that connects users to nearby restaurants, allows them to browse menus, and place orders with ease.  
 
 It is designed to be **portfolio-ready and production-friendly**, featuring:  
-- 🔄 **Robust data handling**: API, Mock, and Auto Fallback modes.  
-- 🌐 **CORS-safe proxy** hosted on Render for Swiggy API integration.  
-- ⚡ **Performance-first UI** with shimmer loaders & lazy rendering.  
-- 🎨 **Modern UX**: sticky header, responsive design, collapsible categories, and polished footer.  
-- 🛠 **Solid engineering**: Redux Toolkit for cart state, Context for global toggles, and custom hooks for online status & menu fetches.  
+- **Robust data handling**: API, Mock, and Auto Fallback modes.  
+- **CORS-safe proxy** hosted on Render for Swiggy API integration.  
+- **Performance-first UI** with shimmer loaders & lazy rendering.  
+- **Modern UX**: sticky header, responsive design, collapsible categories, and polished footer.  
+- **Solid engineering**: Redux Toolkit for cart state, Context for global toggles, and custom hooks for online status & menu fetches.  
 
 ---
 
@@ -170,8 +147,6 @@ src/
 └── App bootstrap (AppLayout + Router)
 ```
 
-> Note: `User.js` and `UserClass.js` are **legacy demos** and not used anymore. Safe to remove.
-
 ### Routes
 - `/` → Home (restaurant list)  
 - `/restaurants/:resId` → Restaurant Menu (supports `?mock=1`)  
@@ -258,49 +233,50 @@ export const Menu_API = IS_LOCAL
   ? "http://localhost:5174/api/menu?resId="
   : `${PROXY_BASE}/api/menu?resId=`;
 ```
-?mock=1 on a menu route forces mock data.
+. ?mock=1 on a menu route forces mock data.
 
-Proxy ensures CORS-free API fetches.
+. Proxy ensures CORS-free API fetches.
+
 ---
 
 ### 🔄 State & Data Flow
 #### Redux Slice (cartSlice.js)
 
-. addItem(item)
+- addItem(item)
 
-. removeItemByIndex(index)
+- removeItemByIndex(index)
 
-. clearCart()
+- clearCart()
 
 #### Hooks
 
-. useRestaurantMenu(resId, forceMock) → [resInfo, source]
+- useRestaurantMenu(resId, forceMock) → [resInfo, source]
 
-. source: "api" | "mock" | "fallback"
+- source: "api" | "mock" | "fallback"
 
-. useOnlineStatus() → online/offline boolean
+- useOnlineStatus() → online/offline boolean
 
 #### Context
 
-MockContext – { useMock, setUseMock }
+- MockContext – { useMock, setUseMock }
 
-UserContext – { loggedInUser, setUserName }
+- UserContext – { loggedInUser, setUserName }
 
 ## ♿ Accessibility & UX
 
-. Semantic roles & alt text on images.
+- Semantic roles & alt text on images.
 
-. Buttons have aria-labels.
+- Buttons have aria-labels.
 
-. Shimmer respects reduced motion:
+- Shimmer respects reduced motion:
 
-    motion-safe:animate-pulse
+   . motion-safe:animate-pulse
 
-    motion-reduce:animate-none
+   . motion-reduce:animate-none
 
-. Focus-visible styles for keyboard navigation.
+- Focus-visible styles for keyboard navigation.
 
-. Auto-centered responsive grid layouts.
+- Auto-centered responsive grid layouts.
 
 ---
 
@@ -312,19 +288,19 @@ npm test
 
 #### Suggested Test Coverage
 
-. Header → cart badge, login/logout toggle
+- Header → cart badge, login/logout toggle
 
-. Restaurant list → search & filter
+- Restaurant list → search & filter
 
-. Menu → add to cart
+- Menu → add to cart
 
-. Cart → remove per row, clear all
+- Cart → remove per row, clear all
 
-. Shimmer → loading state
+- Shimmer → loading state
 
-. Error → fallback route
+- Error → fallback route
 
-. FAQ → accordion expand/collapse
+- FAQ → accordion expand/collapse
 
 ---
 
@@ -372,4 +348,3 @@ For questions or suggestions, feel free to contact me:
 ### 📄 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
-```
